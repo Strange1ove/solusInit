@@ -1,4 +1,7 @@
 #!/bin/bash
+# Strangelove, 2023
+# https://t.me/drxstrangelove 
+
 sshConfig="/etc/ssh/sshd_config"
 
 sshKey="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDSKlvOCC44pzJbPQSA1fBz1ypK2g+Kj6yGdWwG9JIEyQNogHnJV/sZGz1JDHSy23hRuXjSpz2hldKTXC7DEdtN+jATratdnKHlsXGhN/FaCVHICygOTofUCXb9HtxCuFFHhkzixOEF08BIZcQSa+Vy3Oa1azLlo3KC3PqAPebonZImG73y/uEqERVcoHpOZHesZ3Ezco97BcpZQl6cBxuwYkYawGufRkpyylk5E1QGfDuPS8ojUyn2DPSh3Hmqkqs4hDPEAr3CKswKKUz12hJkWWw6ycAAX90uxuiIVb5jnKkjfjKZe20YBYTpBjTECELnJYvB5KGj4nY3WW+ry7mx58vytq0bLLkmZqArBdMCeP9WvihICnZnXbkOxmzObDZwR6H5tbZ1crYf9oEzWgHZk4q9B+YymHKVV18CdYf4hB4BlJX/9uQX5X6JHYfWiFExClc1qA/E1VIROPTNe3gbvrzz3n4xEgrwQH+Kn1R3SwLHIJvKmiNdJMu6Z9lTRY8= strangelove@Labyrinth"
@@ -54,3 +57,4 @@ function switchSshPort(){ # Switches sshd port to 9022
 }
 
 switchSshPort
+insertKey
