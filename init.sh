@@ -45,16 +45,22 @@ function sshSelinuxPermit(){ # To avoid permission denied from Selinux
 
 function insertKey(){
 	printf "\n$sshKey" >> /root/.ssh/authorized_keys
+	printf "\n$sshKey" >> /home/debian/.ssh/authorized_keys 2>/dev/null
+	printf "\n$sshKey" >> /home/ubuntu/.ssh/authorized_keys 2>/dev/null
 }
 
-function switchSshPort(){ # Switches sshd port to 9022
+function changeSshConf(){ # Switches sshd port to 9022
 	sshConfigSanity
+	if [ ! -z `which sestatus` ] ; then
 	sshSelinuxPermit
+	fi
 
 	sed -i '/Port 22/d' "$sshConfig"
+	sed -i '/PermitRootLogin/d' "$sshConfig"
 	echo "Port 9022" >> "$sshConfig"
+	echo "PermitRootLogin prohibit-password" >> "$sshConfig"
 	systemctl restart sshd
 }
 
-switchSshPort
+changeSshConf
 insertKey
